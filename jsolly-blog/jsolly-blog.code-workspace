@@ -4,5 +4,17 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"emmet.includeLanguages": {
+			"javascript": "javascriptreact"
+		},
+		"emmet.triggerExpansionOnTab": true,
+		"emmet.useInlineCompletions": true
+		
+
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": []
+	}
 }
