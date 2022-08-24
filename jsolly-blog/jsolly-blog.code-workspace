@@ -9,7 +9,8 @@
 			"javascript": "javascriptreact"
 		},
 		"emmet.triggerExpansionOnTab": true,
-		"emmet.useInlineCompletions": true
+		"emmet.useInlineCompletions": true,
+		"editor.formatOnSave": true
 		
 
 	},
