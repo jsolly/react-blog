@@ -10,8 +10,12 @@
 		},
 		"emmet.triggerExpansionOnTab": true,
 		"emmet.useInlineCompletions": true,
-		"editor.formatOnSave": true
-		
+		"editor.formatOnSave": true,
+		"git.confirmSync": false,
+		"explorer.confirmDelete": false,
+		"[javascript]": {
+			"editor.defaultFormatter": "esbenp.prettier-vscode"
+		},
 
 	},
 	"launch": {
