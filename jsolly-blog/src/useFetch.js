@@ -8,28 +8,26 @@ const useFetch = (url) => {
   useEffect(() => {
     const abortContr = new AbortController();
     console.log("UseEffect ran!");
-    setTimeout(() => {
-      fetch(url, { signal: abortContr.signal })
-        .then((res) => {
-          if (!res.ok) {
-            throw Error("I had trouble fetching that data!");
-          }
-          return res.json();
-        })
-        .then((data) => {
-          setData(data);
+    fetch(url, { signal: abortContr.signal })
+      .then((res) => {
+        if (!res.ok) {
+          throw Error("I had trouble fetching that data!");
+        }
+        return res.json();
+      })
+      .then((data) => {
+        setData(data);
+        setIsPending(false);
+        setError(null);
+      })
+      .catch((err) => {
+        if (err.name === "AbortError") {
+          console.log("Fetch aborted!");
+        } else {
+          setError(err.message);
           setIsPending(false);
-          setError(null);
-        })
-        .catch((err) => {
-          if (err.name === "AbortError") {
-            console.log("Fetch aborted!");
-          } else {
-            setError(err.message);
-            setIsPending(false);
-          }
-        });
-    }, 1000);
+        }
+      });
     return () => abortContr.abort();
   }, [url]);
   // passing an empty dependency array as 2nd arument makes it so useEffect only runs on first render.
